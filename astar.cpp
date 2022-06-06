@@ -1,4 +1,5 @@
 #include "astar.h"
+#include <fstream>
 
 int Node::is_same(Node a) { return (i == a.get_i()) && (j == a.get_j()); }
 int Map::init() {
@@ -15,6 +16,7 @@ int Map::init() {
       (*this)(i, j).set(i, j);
     }
   }
+  file_flow.close();
   return 0;
 }
 int Map::set_target() {
@@ -45,14 +47,14 @@ int Map::set_target() {
 }
 int Map::print() {
   cout << "Outputting the Map:" << name << endl;
+  file_flow.open("road.txt");
   for (int i = 0; i < row; i++) {
-    cout << "[ ";
     for (int j = 0; j < column; j++) {
-      cout << setw(1) << (*this)(i, j).get_status() << " ";
+      file_flow << ((*this)(i, j).get_listed() == ROAD) << " ";
     }
-    cout << " ]" << endl;
+    file_flow << endl;
   }
-  cout << endl;
+  file_flow.close();
   return 0;
 }
 

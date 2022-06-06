@@ -12,10 +12,12 @@ int main() {
   cout << "The path found by algorithm is :" << endl;
   while (temp != NULL) {
     temp->print();
+    temp->set_listed(ROAD);
     cout << "<-";
     temp = temp->get_parent();
   }
   cout << endl;
+  shahe.print();
   //   shahe(0, 3).get_parent()->print();
   //   cout<<endl;
   return 0;

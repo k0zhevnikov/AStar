@@ -32,6 +32,7 @@ typedef int status;
 #define IN_OPEN_LIST 1
 #define NOT_IN_LIST 0
 #define IN_CLOSE_LIST -1
+#define ROAD 2
 
 class Node {
   Node *parent;
