@@ -50,8 +50,14 @@ int Map::print() {
   file_flow.open("road.txt");
   for (int i = 0; i < row; i++) {
     for (int j = 0; j < column; j++) {
-      file_flow << ((*this)(i, j).get_listed() == ROAD) << " ";
+      if ((*this)(i, j).get_listed() == ROAD) {
+        file_flow << "R"
+                  << " ";
+      } else {
+        file_flow << (*this)(i, j).get_status() << " ";
+      }
     }
+
     file_flow << endl;
   }
   file_flow.close();
